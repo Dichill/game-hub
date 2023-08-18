@@ -4,21 +4,20 @@ import getCroppedImageUrl from "../services/image-url"
 import GenreListSkeleton from "./GenreListSkeleton"
 
 const GenreList = () => {
-    const {data, isLoading} = useGenres()    
+    const {data, isLoading, error} = useGenres()    
+
+    if (error) return null
+    if (isLoading) return <GenreListSkeleton/>
 
     return (
-        <>
-            {isLoading ? <GenreListSkeleton/> : 
-                <List>
-                    {data.map(genre => (<ListItem key={genre.id} paddingY='5px'>
-                        <HStack>
-                            <Image boxSize="32px" borderRadius={8} src={getCroppedImageUrl(genre.image_background)} />
-                            <Text fontSize='lg'>{genre.name}</Text>
-                        </HStack>
-                    </ListItem>))}
-                </List>
-            }
-        </>
+        <List>
+            {data.map(genre => (<ListItem key={genre.id} paddingY='5px'>
+                <HStack>
+                    <Image boxSize="32px" borderRadius={8} src={getCroppedImageUrl(genre.image_background)} />
+                    <Text fontSize='lg'>{genre.name}</Text>
+                </HStack>
+            </ListItem>))}
+        </List>
     )
 }
 
