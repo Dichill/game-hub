@@ -1,13 +1,25 @@
-import { HStack, Image } from "@chakra-ui/react"
+import { Box, Flex, HStack, Image, Stack, Text, useColorModeValue } from "@chakra-ui/react"
 import logo from '../assets/logo.webp'
 import ColorModeSwitch from "./ColorModeSwitch"
 
 const NavBar = () => {
     return (
-        <HStack justifyContent={"space-between"} padding="10px">
-            <Image src={logo} boxSize="60px"/>
-            <ColorModeSwitch/>
-        </HStack>
+        <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} marginBottom={4}>
+            <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+                <Box>
+                    <HStack>
+                        <Image src={logo} width={12}/>
+                        <Text>Game Hub</Text>
+                    </HStack>
+                </Box>
+
+                <Flex alignItems={"center"}>
+                    <Stack direction={'row'} spacing={7}>
+                        <ColorModeSwitch />
+                    </Stack>
+                </Flex>
+            </Flex>
+        </Box>
     )
 }
 
