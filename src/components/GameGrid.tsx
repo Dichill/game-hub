@@ -8,6 +8,7 @@ import {
 } from '@chakra-ui/react'
 import GameCard from "./GameCard"
 import GameCardSkeleton from "./GameCardSkeleton"
+import GameCardContainer from "./GameCardContainer"
 
 const GameGrid = () => {
     // setGames, setError
@@ -17,17 +18,23 @@ const GameGrid = () => {
     return (
         <>
             {error && (
-                <Alert status='error'>
+                <Alert status='error' width={'8xl'}>
                     <AlertIcon />
                     <AlertTitle>Error Fetching the Data</AlertTitle>
                     <AlertDescription>{error}</AlertDescription>
                 </Alert>
-            )
+                )
             }
             <SimpleGrid columns={{sm: 1, md: 2, lg: 3, xl: 5}} padding='10px' spacing={10}>
-                {isLoading && skeletons.map(s => (<GameCardSkeleton key={s} />))}
+                
+                {isLoading && skeletons.map(s => (
+                <GameCardContainer key={s}>
+                    <GameCardSkeleton key={s} />
+                </GameCardContainer>))}
                 {games.map(game => {
-                    return <GameCard key={game.id} game={game}/>
+                    return (
+                        <GameCard key={game.id} game={game}/>
+                    )
                 })}
             </SimpleGrid>
         </>

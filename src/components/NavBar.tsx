@@ -1,6 +1,6 @@
 import { Box, Flex, HStack, Image, Stack, Text, useColorModeValue } from "@chakra-ui/react"
 import logo from '../assets/logo.webp'
-import ColorModeSwitch from "./ColorModeSwitch"
+import ColorModeButton from "./ColorModeButton"
 
 const NavBar = () => {
     return (
@@ -15,7 +15,7 @@ const NavBar = () => {
 
                 <Flex alignItems={"center"}>
                     <Stack direction={'row'} spacing={7}>
-                        <ColorModeSwitch />
+                        <ColorModeButton />
                     </Stack>
                 </Flex>
             </Flex>
