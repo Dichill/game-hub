@@ -1,13 +1,13 @@
 import { Box } from "@chakra-ui/react"
-import useGenres from "../hooks/useGenres"
+import useGenres from "../services/genre-service"
 
 const GenreList = () => {
-    const {genres, error, isLoading} = useGenres()
+    const {data} = useGenres()    
 
     return (
         <Box padding={10}>
             <ul>
-                {genres.map(genre => (<li>{genre.name}</li>))}
+                {data.map(genre => (<li key={genre.id}>{genre.name}</li>))}
             </ul>
         </Box>
     )

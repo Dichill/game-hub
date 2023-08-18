@@ -1,14 +1,9 @@
-import create from "../services/http-service";
-
+import useData from "../hooks/useData";
 
 export interface Genre {
     id: number;
     name: string;
 }
 
-export interface FetchGenreResponse {
-    count: number
-    results: Genre[]
-}
-
-export default create('/genres')
+const useGenres = () => useData<Genre>('/genres')
+export default useGenres

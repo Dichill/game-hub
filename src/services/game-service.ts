@@ -1,4 +1,4 @@
-import create from "../services/http-service";
+import useData from "../hooks/useData";
 
 export interface Platform {
     id: number;
@@ -14,9 +14,5 @@ export interface Game {
     parent_platforms: { platform: Platform }[]
 }
 
-export interface FetchGameResponse {
-    count: number
-    results: Game[]
-}
-
-export default create('/games')
+const useGames = () => useData<Game>('/games')
+export default useGames
