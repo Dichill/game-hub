@@ -12,7 +12,7 @@ const SearchInput = ({ onChangeSearchGame }: Props) => {
     useEffect(() => {
         const delayDebounceFn = setTimeout(() => {
             onChangeSearchGame(searchGame);
-        }, 2000);
+        }, 1000);
 
         return () => clearTimeout(delayDebounceFn);
 
