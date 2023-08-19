@@ -1,26 +1,39 @@
-import { Box, Flex, HStack, Image, Stack, Text, useColorModeValue } from "@chakra-ui/react"
-import logo from '../assets/logo.webp'
-import ColorModeButton from "./ColorModeButton"
+import {
+    Box,
+    Flex,
+    HStack,
+    Image,
+    Stack,
+    useColorModeValue,
+} from "@chakra-ui/react";
+import logo from "../assets/logo.webp";
+import ColorModeButton from "./ColorModeButton";
+import SearchInput from "./SearchInput";
 
 const NavBar = () => {
     return (
-        <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} marginBottom={4}>
-            <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-                <Box>
-                    <HStack>
-                        <Image src={logo} width={12}/>
-                        <Text>Game Hub</Text>
-                    </HStack>
-                </Box>
+        <HStack
+            bg={useColorModeValue("gray.100", "gray.900")}
+            px={4}
+            marginBottom={4}
+            h={16}
+        >
+            <Box>
+                <HStack>
+                    <Image src={logo} width={12} />
+                    {/* <Text whiteSpace="nowrap">Game Hub</Text> */}
+                </HStack>
+            </Box>
 
-                <Flex alignItems={"center"}>
-                    <Stack direction={'row'} spacing={7}>
-                        <ColorModeButton />
-                    </Stack>
-                </Flex>
+            <SearchInput />
+
+            <Flex alignItems={"center"} paddingLeft={2}>
+                <Stack direction={"row"} spacing={7}>
+                    <ColorModeButton />
+                </Stack>
             </Flex>
-        </Box>
-    )
-}
+        </HStack>
+    );
+};
 
-export default NavBar
+export default NavBar;
