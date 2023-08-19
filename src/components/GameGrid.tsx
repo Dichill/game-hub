@@ -21,15 +21,18 @@ const GameGrid = ({ gameQuery }: Props) => {
 
     const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
+    if (error) {
+        return (
+            <Alert status="error" width={"8xl"} marginX={2}>
+                <AlertIcon />
+                <AlertTitle>Error Fetching the Data</AlertTitle>
+                <AlertDescription>{error}</AlertDescription>
+            </Alert>
+        );
+    }
+
     return (
         <>
-            {error && (
-                <Alert status="error" width={"8xl"}>
-                    <AlertIcon />
-                    <AlertTitle>Error Fetching the Data</AlertTitle>
-                    <AlertDescription>{error}</AlertDescription>
-                </Alert>
-            )}
             <SimpleGrid
                 columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
                 padding="10px"
