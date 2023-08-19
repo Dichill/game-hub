@@ -1,11 +1,4 @@
-import {
-    Box,
-    Flex,
-    HStack,
-    Image,
-    Stack,
-    useColorModeValue,
-} from "@chakra-ui/react";
+import { Box, Flex, HStack, Image, Stack } from "@chakra-ui/react";
 import logo from "../assets/logo.webp";
 import ColorModeButton from "./ColorModeButton";
 import SearchInput from "./SearchInput";
@@ -16,12 +9,7 @@ interface Props {
 
 const NavBar = ({ search }: Props) => {
     return (
-        <HStack
-            bg={useColorModeValue("gray.100", "gray.900")}
-            px={4}
-            marginBottom={4}
-            h={16}
-        >
+        <HStack px={4} marginBottom={4} h={16}>
             <Box>
                 <HStack>
                     <Image src={logo} width={12} />

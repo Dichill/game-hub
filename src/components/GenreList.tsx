@@ -25,7 +25,7 @@ const GenreList = ({ onSelectedGenre, selectedGenre }: Props) => {
     return (
         <>
             <Heading textAlign="left" fontSize="2xl" marginBottom={3}>
-                Genres
+                {isLoading ? "" : "Genres"}
             </Heading>
             <List>
                 {data.map((genre) => (
