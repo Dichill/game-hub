@@ -9,7 +9,7 @@ import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
 import useGames from "../services/game-service";
-import { GameQuery } from "./GameQueryInterface";
+import { GameQuery } from "../interface/GameQueryInterface";
 
 interface Props {
     gameQuery: GameQuery;

@@ -16,13 +16,13 @@ interface Props {
 
 const PlatformSelector = ({ onSelectPlatform }: Props) => {
     const { data, error, isLoading } = usePlatform();
-    const [selected, setSelected] = useState("Platforms");
+    const [selected, setSelected] = useState("All");
 
     if (error) return null;
     return (
         <Menu>
             <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-                {isLoading ? <Spinner /> : selected}
+                {isLoading ? <Spinner /> : "Platform: " + selected}
             </MenuButton>
             <MenuList>
                 {data.map((platform) => (
