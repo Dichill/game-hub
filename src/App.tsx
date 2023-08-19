@@ -22,7 +22,12 @@ function App() {
             }}
         >
             <GridItem area="nav">
-                <NavBar />
+                <NavBar
+                    search={(search) =>
+                        search != "n/a" &&
+                        setGameQuery({ ...gameQuery, search })
+                    }
+                />
             </GridItem>
 
             <Show above="lg">
