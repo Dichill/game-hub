@@ -9,20 +9,15 @@ import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
 import useGames from "../services/game-service";
-import { Genre } from "../services/genre-service";
-import { Platform } from "../services/platform-service";
+import { GameQuery } from "./GameQueryInterface";
 
 interface Props {
-    selectedGenre: Genre | null;
-    selectedPlatform: Platform | null;
+    gameQuery: GameQuery;
 }
 
-const GameGrid = ({ selectedGenre, selectedPlatform }: Props) => {
+const GameGrid = ({ gameQuery }: Props) => {
     // setGames, setError
-    const { data, error, isLoading } = useGames(
-        selectedGenre,
-        selectedPlatform
-    );
+    const { data, error, isLoading } = useGames(gameQuery);
 
     const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
